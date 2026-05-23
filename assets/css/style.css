@@ -101,12 +101,24 @@ a:hover { text-decoration: underline; }
 }
 .hero-affiliation {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  gap: 20px 28px;
+  max-width: 680px;
+  margin: 0 auto;
 }
 .hero-affiliation img {
   display: block;
-  width: min(260px, 70vw);
-  height: auto;
+  width: auto;
+  max-width: min(260px, 78vw);
+  object-fit: contain;
+}
+.hero-affiliation .daplab-logo {
+  height: 56px;
+}
+.hero-affiliation .nyu-logo {
+  height: 44px;
 }
 .hero-buttons {
   display: flex;
@@ -660,6 +672,9 @@ th.sortable.sort-desc .sort-arrow::after { content: "▼"; color: var(--primary)
   .hero h1 { font-size: 38px; }
   .hero .tagline { font-size: 18px; }
   .hero .subtagline { font-size: 15px; }
+  .hero-affiliation { gap: 14px 20px; }
+  .hero-affiliation .daplab-logo { height: 46px; }
+  .hero-affiliation .nyu-logo { height: 36px; }
   section { padding: 36px 0; }
   section h2 { font-size: 22px; }
 
