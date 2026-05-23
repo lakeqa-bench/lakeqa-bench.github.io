@@ -89,14 +89,14 @@ a:hover { text-decoration: underline; }
 }
 .hero .tagline {
   font-size: 22px;
-  margin: 0 0 8px;
+  margin: 0 auto 8px;
   color: var(--text);
   font-weight: 500;
 }
 .hero .subtagline {
   font-size: 17px;
   color: var(--muted);
-  margin: 0 0 24px;
+  margin: 0 auto 24px;
   font-style: italic;
 }
 .hero-affiliation {
