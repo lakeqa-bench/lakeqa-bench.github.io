@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20260525" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260525-redesign" />
 </head>
 <body>
 
@@ -25,10 +25,25 @@
 </header>
 
 <section class="hero">
-  <div class="container-wide">
+  <div class="container-wide hero-inner">
+    <p class="hero-eyebrow">ICML 2026 Benchmark</p>
     <h1>LakeQA</h1>
     <p class="tagline">An Exploratory QA Benchmark over a Million-Scale Data Lake</p>
     <p class="subtagline">Can LLM agents discover the evidence before reasoning over it?</p>
+    <div class="hero-kpis" aria-label="Benchmark scale">
+      <div class="hero-kpi">
+        <strong>~9.5 TB</strong>
+        <span>data lake</span>
+      </div>
+      <div class="hero-kpi">
+        <strong>40M</strong>
+        <span>unique files</span>
+      </div>
+      <div class="hero-kpi">
+        <strong>1,005</strong>
+        <span>full tasks</span>
+      </div>
+    </div>
     <div class="hero-affiliation" aria-label="Affiliations">
       <img class="daplab-logo" src="assets/img/daplab_logo_horiz.png" alt="DAPLab" width="1508" height="331" />
       <img class="vida-logo" src="assets/img/vida_logo_long.png" alt="VIDA Lab" width="473" height="59" />
@@ -71,19 +86,45 @@
 
         <hr class="card-divider" />
 
-        <h3>Benchmark pipeline</h3>
-        <div class="pipeline">
-          <div class="node">Question</div>
-          <span class="arrow">→</span>
-          <div class="node">Plan missing evidence</div>
-          <span class="arrow">→</span>
-          <div class="node">Search data lake</div>
-          <span class="arrow">→</span>
-          <div class="node">Inspect / query files</div>
-          <span class="arrow">→</span>
-          <div class="node">Multi-hop answer</div>
+        <h3>Benchmark workflow</h3>
+        <div class="workflow-showcase" aria-label="LakeQA benchmark workflow">
+          <div class="workflow-step">
+            <span class="workflow-index">01</span>
+            <div>
+              <h4>Question</h4>
+              <p>Start from a natural-language task with no provided evidence.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-index">02</span>
+            <div>
+              <h4>Plan missing evidence</h4>
+              <p>Reason about what documents, tables, or facts must be discovered.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-index">03</span>
+            <div>
+              <h4>Search data lake</h4>
+              <p>Use ontology tags and keyword queries to narrow millions of candidates.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-index">04</span>
+            <div>
+              <h4>Inspect / query files</h4>
+              <p>Open, preview, download, and query the retrieved evidence.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="workflow-index">05</span>
+            <div>
+              <h4>Multi-hop answer</h4>
+              <p>Synthesize the final response from the evidence chain.</p>
+            </div>
+          </div>
         </div>
-        <p style="font-size: 14px; color: var(--muted); margin-top: 12px;">
+        <p class="workflow-note">
           At each step the agent uses a fixed tool interface
           (<code>search</code>, <code>listdata</code>, <code>download</code>, <code>inspect</code>, <code>query</code>)
           to discover, retrieve, and analyze data.
