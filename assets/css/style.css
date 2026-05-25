@@ -117,8 +117,8 @@ a:hover { text-decoration: underline; }
 .hero-affiliation .daplab-logo {
   height: 56px;
 }
-.hero-affiliation .nyu-logo {
-  height: 44px;
+.hero-affiliation .vida-logo {
+  height: 42px;
 }
 .hero-buttons {
   display: flex;
@@ -674,7 +674,7 @@ th.sortable.sort-desc .sort-arrow::after { content: "▼"; color: var(--primary)
   .hero .subtagline { font-size: 15px; }
   .hero-affiliation { gap: 14px 20px; }
   .hero-affiliation .daplab-logo { height: 46px; }
-  .hero-affiliation .nyu-logo { height: 36px; }
+  .hero-affiliation .vida-logo { height: 34px; }
   section { padding: 36px 0; }
   section h2 { font-size: 22px; }
 
