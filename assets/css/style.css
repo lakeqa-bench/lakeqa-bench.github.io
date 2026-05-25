@@ -83,14 +83,6 @@ a:hover { text-decoration: underline; }
 .hero-inner {
   position: relative;
 }
-.hero-eyebrow {
-  margin: 0 auto 12px;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 .hero h1 {
   font-family: var(--display);
   font-size: 64px;
@@ -225,6 +217,7 @@ section > .container-wide > .json-viewer,
 section > .container-wide > .json-caption,
 section > .container-wide > pre,
 section > .container-wide > .banner,
+section > .container-wide > .task-copy-panel,
 section > .container-wide > .metric-groups,
 section > .container-wide > .challenge-grid {
   max-width: 920px;
@@ -239,6 +232,25 @@ section h3 {
   color: var(--text);
 }
 section p { margin: 0 0 16px; }
+
+/* ---------- Task definition ---------- */
+
+.task-copy-panel {
+  margin: 20px 0 30px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--panel);
+}
+.task-copy-panel p {
+  color: #2e3a4d;
+  font-size: 16px;
+  line-height: 1.72;
+}
+.task-copy-panel p:last-child {
+  margin-bottom: 0;
+}
 
 /* ---------- Challenge cards ---------- */
 
@@ -709,7 +721,6 @@ th.sortable.sort-desc .sort-arrow::after { content: "▼"; color: var(--primary)
   to   { opacity: 1; transform: none; }
 }
 .hero h1            { animation: lakeqa-rise 0.55s ease-out both; }
-.hero .hero-eyebrow { animation: lakeqa-rise 0.55s ease-out both; }
 .hero .tagline      { animation: lakeqa-rise 0.55s 0.10s ease-out both; }
 .hero .subtagline   { animation: lakeqa-rise 0.55s 0.20s ease-out both; }
 .hero .hero-kpis    { animation: lakeqa-rise 0.55s 0.26s ease-out both; }
@@ -718,7 +729,7 @@ th.sortable.sort-desc .sort-arrow::after { content: "▼"; color: var(--primary)
 .home-grid > .right-col { animation-delay: 0.40s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero h1, .hero .hero-eyebrow, .hero .tagline, .hero .subtagline,
+  .hero h1, .hero .tagline, .hero .subtagline,
   .hero .hero-kpis, .hero-affiliation,
   .home-grid > .card { animation: none; }
 }
