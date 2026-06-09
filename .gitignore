@@ -1,6 +1,7 @@
 # Confidential reviewer copy of the LakeQA paper — must never be committed.
 # Use the camera-ready / arXiv copy when populating the site.
 *.pdf
+!assets/papers/lakeqa_arxiv.pdf
 33696_LakeQA_A_Benchmark_for_C.pdf
 
 # OS / editor cruft

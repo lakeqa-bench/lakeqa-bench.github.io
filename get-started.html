@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20260525-refine" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260609-paper" />
 </head>
 <body>
 
@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<section>
+<section id="get-dataset">
   <div class="container-wide">
     <h2>1. Prerequisites</h2>
     <p>
@@ -67,7 +67,7 @@
 from botocore import UNSIGNED
 from botocore.config import Config
 
-bucket = <span class="placeholder">[FILL IN — S3 BUCKET NAME]</span>
+bucket = "lakeqa-yc4103-datalake"
 key = "datagov/2021-state-expenditures/files/rows.txt"
 
 s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
@@ -80,7 +80,7 @@ df = pd.read_csv(io.BytesIO(obj["Body"].read()), low_memory=False)</pre>
       disk and budget several hours of bandwidth.
     </p>
     <pre class="bibtex">aws s3 sync --no-sign-request \
-    s3://<span class="placeholder">[FILL IN — S3 BUCKET NAME]</span>/ \
+    s3://lakeqa-yc4103-datalake/ \
     ./lakeqa-data/</pre>
 
     <h3>The task files</h3>
@@ -226,9 +226,12 @@ class MyAgent(BaseAgent):
     </p>
     <pre class="bibtex">@inproceedings{lakeqa2026,
   title     = {LakeQA: An Exploratory QA Benchmark over a Million-Scale Data Lake},
-  author    = {[FILL IN FROM CAMERA-READY]},
-  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-  year      = {2026}
+  author    = {Haonan Wang and Jiaxiang Liu and Yurong Liu and Austin Senna Wijaya and Tianle Zhou and Eden Wu and Yijia Chen and Wanting You and Reya Vir and Daniela Pinto and Grace Fan and Yusen Zhang and Juliana Freire and Eugene Wu},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {306},
+  year      = {2026},
+  address   = {Seoul, South Korea}
 }</pre>
   </div>
 </section>

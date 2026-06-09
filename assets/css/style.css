@@ -499,6 +499,18 @@ th.sortable.sort-desc .sort-arrow::after { content: "▼"; color: var(--primary)
   overflow-x: auto;
 }
 
+.paper-meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.paper-meta strong {
+  color: var(--text);
+}
+.paper-meta.author-list {
+  line-height: 1.55;
+}
+
 /* ---------- Metric groups (evaluation page) ---------- */
 
 .metric-groups {

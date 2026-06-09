@@ -13,6 +13,8 @@ Vanilla HTML/CSS/JS — no framework, no build step. Designed to be served direc
 ├── assets/
 │   ├── css/style.css
 │   ├── js/leaderboard.js
+│   ├── papers/
+│   │   └── lakeqa_arxiv.pdf # Public arXiv/camera-ready PDF linked from the home page
 │   ├── task_7.json         # Source of truth for the worked example on details.html
 │   └── data/
 │       ├── leaderboard_full.json
@@ -83,11 +85,9 @@ See the [Details page](details.html#metrics) for the metric definitions.
 
 Before pushing the repo public:
 
-1. Replace every `[FILL IN ...]` placeholder using the **camera-ready or arXiv** copy of the paper. Never use the confidential reviewer copy.
-2. Replace the `Paper (PDF)`, `Code`, and `Dataset (S3)` placeholder links in the top nav and inside the "What is LakeQA?" card on `index.html`.
-3. Replace the GitHub URL in the README submission link inside `index.html`'s leaderboard footnote.
-4. Confirm `.gitignore` blocks the confidential PDF (`*.pdf`) — verify with `git status` that no PDF is staged.
-5. `grep -ri "confidential reviewer" .` must return no results inside committed source.
+1. Replace any remaining `[FILL IN ...]` placeholders using the public code-release target once it is available.
+2. Confirm the only committed PDF is the public arXiv/camera-ready PDF at `assets/papers/lakeqa_arxiv.pdf`.
+3. `grep -ri "confidential reviewer" .` must return no results inside committed source.
 
 ## License
 
