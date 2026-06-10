@@ -4,6 +4,10 @@ Static website for **LakeQA: An Exploratory QA Benchmark over a Million-Scale Da
 
 Vanilla HTML/CSS/JS — no framework, no build step. Designed to be served directly from GitHub Pages.
 
+- Website: https://lakeqa-bench.github.io/
+- Code: https://github.com/lakeagent/datalake-qa
+- Data roots: `s3://lakeqa-yc4103-datalake/datagov`, `s3://lakeqa-yc4103-datalake/wikipedia`
+
 ## Layout
 
 ```
@@ -85,7 +89,7 @@ See the [Details page](details.html#metrics) for the metric definitions.
 
 Before pushing the repo public:
 
-1. Replace any remaining `[FILL IN ...]` placeholders using the public code-release target once it is available.
+1. Confirm the homepage points to the current public code repository.
 2. Confirm the only committed PDF is the public arXiv/camera-ready PDF at `assets/papers/lakeqa_arxiv.pdf`.
 3. `grep -ri "confidential reviewer" .` must return no results inside committed source.
 

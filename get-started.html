@@ -54,9 +54,14 @@
   <div class="container-wide">
     <h2>2. Get the dataset</h2>
     <p>
-      LakeQA is published as a single public S3 bucket containing roughly <strong>40 million</strong> deduplicated
+      LakeQA is published under two public S3 roots containing roughly <strong>40 million</strong> deduplicated
       files from Wikipedia and Data.gov. There is no auth — clients use the anonymous (unsigned) S3 protocol.
     </p>
+    <div class="banner">
+      <strong>Data roots:</strong>
+      <code>s3://lakeqa-yc4103-datalake/datagov</code> and
+      <code>s3://lakeqa-yc4103-datalake/wikipedia</code>.
+    </div>
 
     <h3>Option A — On-demand (recommended for most users)</h3>
     <p>
@@ -80,8 +85,12 @@ df = pd.read_csv(io.BytesIO(obj["Body"].read()), low_memory=False)</pre>
       disk and budget several hours of bandwidth.
     </p>
     <pre class="bibtex">aws s3 sync --no-sign-request \
-    s3://lakeqa-yc4103-datalake/ \
-    ./lakeqa-data/</pre>
+    s3://lakeqa-yc4103-datalake/datagov \
+    ./lakeqa-data/datagov
+
+aws s3 sync --no-sign-request \
+    s3://lakeqa-yc4103-datalake/wikipedia \
+    ./lakeqa-data/wikipedia</pre>
 
     <h3>The task files</h3>
     <p>
@@ -102,8 +111,8 @@ df = pd.read_csv(io.BytesIO(obj["Body"].read()), low_memory=False)</pre>
     <p>
       The reference agent, evaluation harness, and tool implementations live in a separate repository:
     </p>
-    <pre class="bibtex">git clone <span class="placeholder">[FILL IN — GITHUB REPO URL]</span>
-cd lakeqa
+    <pre class="bibtex">git clone https://github.com/lakeagent/datalake-qa.git
+cd datalake-qa
 pip install -e .</pre>
     <p>
       The repository ships with the five tools described in <a href="details.html">Details</a>
