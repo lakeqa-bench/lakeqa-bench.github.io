@@ -66,7 +66,7 @@ Each leaderboard entry is one object:
   "dret_f1": 5.86,
   "reported": "2026-05",
   "source": "https://link-to-your-paper-or-traces",
-  "notes": ""
+  "notes": "Optional short note about your system"
 }
 ```
 
@@ -95,4 +95,4 @@ Before pushing the repo public:
 
 ## License
 
-TBD — coordinate with co-authors before pushing public.
+See the public benchmark repository for code and data licensing details: <https://github.com/lakeagent/datalake-qa>.

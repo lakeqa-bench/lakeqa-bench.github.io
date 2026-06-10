@@ -36,10 +36,15 @@
     return res.json();
   }
 
-  function buildHead(table, sortKey, sortDir) {
+  function visibleColumns(rows) {
+    const hasNotes = rows.some((row) => String(row.notes || "").trim() !== "");
+    return COLUMNS.filter((col) => col.key !== "notes" || hasNotes);
+  }
+
+  function buildHead(table, columns, sortKey, sortDir) {
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    COLUMNS.forEach((col) => {
+    columns.forEach((col) => {
       const th = document.createElement("th");
       th.textContent = col.label;
       if (col.type === "num" || col.type === "rank") th.classList.add("num");
@@ -59,11 +64,11 @@
     table.appendChild(thead);
   }
 
-  function buildBody(table, rows) {
+  function buildBody(table, columns, rows) {
     const tbody = document.createElement("tbody");
     rows.forEach((row, idx) => {
       const tr = document.createElement("tr");
-      COLUMNS.forEach((col) => {
+      columns.forEach((col) => {
         const td = document.createElement("td");
         if (col.type === "rank") {
           td.classList.add("rank");
@@ -80,8 +85,8 @@
     table.appendChild(tbody);
   }
 
-  function sortRows(rows, key, dir) {
-    const col = COLUMNS.find((c) => c.key === key);
+  function sortRows(rows, columns, key, dir) {
+    const col = columns.find((c) => c.key === key);
     if (!col) return rows;
     const sorted = rows.slice().sort((a, b) => {
       const av = a[key];
@@ -98,9 +103,10 @@
 
   function renderTable(container, rows, sortKey, sortDir) {
     container.innerHTML = "";
+    const columns = visibleColumns(rows);
     const table = document.createElement("table");
-    buildHead(table, sortKey, sortDir);
-    buildBody(table, sortRows(rows, sortKey, sortDir));
+    buildHead(table, columns, sortKey, sortDir);
+    buildBody(table, columns, sortRows(rows, columns, sortKey, sortDir));
     container.appendChild(table);
 
     container.querySelectorAll("th.sortable").forEach((th) => {
@@ -110,7 +116,7 @@
         if (key === sortKey) {
           dir = sortDir === "asc" ? "desc" : "asc";
         } else {
-          const col = COLUMNS.find((c) => c.key === key);
+          const col = columns.find((c) => c.key === key);
           dir = (col && col.defaultDir) || "desc";
         }
         renderTable(container, rows, key, dir);
